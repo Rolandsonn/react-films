@@ -1,0 +1,85 @@
+@import "../../../shared/styles/styles.scss";
+
+.SinglePage {
+  background-color: black;
+  min-height: calc(100vh - 8px - 56px);
+  padding-top: 120px;
+  padding-bottom: 40px;
+  &__btn {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    background-color: $primary-bg-color;
+    color: $primary-text-color;
+    cursor: pointer;
+    &:hover {
+      background: $primary-text-color;
+      color: $primary-bg-color;
+    }
+  }
+  &__list_title {
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 1;
+  }
+  &__list_subtitle {
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1;
+    color: blue;
+  }
+  &__inner {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    border: 3px solid $primary-bg-color;
+  }
+  &__img {
+    width: 380px;
+    height: 380px;
+    border-radius: 2px;
+  }
+  &__list {
+    font-weight: 500;
+    color: $primary-text-color;
+    font-size: 18px;
+    line-height: 1;
+    margin-left: 25px;
+    margin-bottom: 20px;
+  }
+  &__list_title {
+    color: $secondary-bg-color;
+  }
+  &__list_item:not(:last-child) {
+    margin-bottom: 17px;
+  }
+  &__genres {
+    display: inline-block;
+
+    margin-bottom: 10px;
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+  &__list_link {
+    margin-top: 70px;
+    background-color: $primary-bg-color;
+    color: $primary-text-color;
+    border: none;
+    border-radius: 3px;
+    padding: 15px 20px;
+    cursor: pointer;
+    &:hover {
+      background: $primary-text-color;
+      color: $primary-bg-color;
+    }
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}

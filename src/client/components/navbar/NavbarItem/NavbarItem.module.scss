@@ -1,0 +1,9 @@
+@import "../../../../shared/styles/styles.scss";
+
+.navItem {
+  cursor: pointer;
+  color: $primary-text-color;
+  &:hover {
+    color: rgb(77, 209, 224);
+  }
+}

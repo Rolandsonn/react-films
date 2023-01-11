@@ -1,0 +1,19 @@
+@import "../../../shared/styles/styles.scss";
+.wrapper {
+  position: relative;
+}
+.BtnUp {
+  width: 40px;
+  background-color: none;
+  transform: translate(20px 30px);
+  cursor: pointer;
+}
+
+.ScrollBtn {
+  position: absolute;
+  right: 50px;
+  bottom: 60px;
+  border: none;
+  background-color: none;
+  outline: none;
+}
