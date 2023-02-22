@@ -17,7 +17,7 @@ export default function SingleMoviePage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [movie, setMovie] = useState({});
-  const [favorite, setFavorite] = useState([]);
+  const [videos, setvideos] = useState([]);
   const { getFav } = useFav();
   const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -32,14 +32,31 @@ export default function SingleMoviePage() {
     });
   }, []);
 
-  const handleAddMovie = () => {
-    setFavorite((prevState) => {
-      if (prevState !== movie) {
-        return [...prevState, favorite];
-      }
-    });
-  };
+  useEffect(() => {
+    try {
+      const fetchVideo = async () => {
+        let videoAPI = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
+        await axios.get(videoAPI).then((res) => {
+          setvideos(res.data.results);
+          console.log(res);
+        });
+      };
 
+      fetchVideo();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  // const handleAddMovie = () => {
+  //   setFavorite((prevState) => {
+  //     if (prevState !== movie) {
+  //       return [...prevState, favorite];
+  //     }
+  //   });
+  // };
+
+  //Map Genres
   const genres = movie.genres?.map((item) => (
     <div key={shortid.generate()} className={styles.SinglePage__genres}>
       <p
@@ -50,7 +67,15 @@ export default function SingleMoviePage() {
       </p>
     </div>
   ));
-
+  const {
+    poster_path,
+    backdrop_path,
+    title,
+    vote_count,
+    overview,
+    vote_average,
+  } = movie;
+  const filmTrailer = videos.map((video) => video.key);
   return (
     <div className={styles.SinglePage}>
       <button className={styles.SinglePage__btn} onClick={handleGoBack}>
@@ -62,9 +87,9 @@ export default function SingleMoviePage() {
             <img
               className={styles.SinglePage__img}
               src={
-                movie.poster_path &&
+                poster_path &&
                 `https://image.tmdb.org/t/p/w500${
-                  movie.poster_path || movie.backdrop_path || imageDef
+                  poster_path || backdrop_path || imageDef
                 }`
               }
               alt="img"
@@ -72,17 +97,17 @@ export default function SingleMoviePage() {
 
             <ul className={styles.SinglePage__list}>
               <li className={styles.SinglePage__list_item}>
-                <h1 className={styles.SinglePage__list_title}>{movie.title}</h1>
+                <h1 className={styles.SinglePage__list_title}>{title}</h1>
               </li>
               <li className={styles.SinglePage__list_item}>
-                <h2 className={styles.SinglePage__list_subtitle}>User Score</h2>
-                <p className={styles.SinglePage__text}>
-                  {Math.round(movie.vote_average)}/10
-                </p>
+                <h2 className={styles.SinglePage__list_subtitle}>Vote/votes</h2>
+                <span className={styles.SinglePage__text}>
+                  <span>{vote_average}</span>/ <span>{vote_count}</span>
+                </span>
               </li>
               <li className={styles.SinglePage__list_item}>
                 <h2 className={styles.SinglePage__list_subtitle}>Overview</h2>
-                <p className={styles.SinglePage__list_text}>{movie.overview}</p>
+                <p className={styles.SinglePage__list_text}>{overview}</p>
               </li>
               <li className={styles.SinglePage__list_item}>
                 <h2 className={styles.SinglePage__list_subtitle}>Genres</h2>
@@ -95,8 +120,16 @@ export default function SingleMoviePage() {
                 <Link className={styles.SinglePage__list_link} to="reviews">
                   Reviews
                 </Link>
-                <BtnFavorites onClick={handleAddMovie} />
               </li>
+              <iframe
+                width="560"
+                height="315"
+                src={`https://www.youtube.com/embed/${
+                  filmTrailer[filmTrailer.length - 1]
+                }`}
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
             </ul>
           </div>
         </>
@@ -109,3 +142,15 @@ export default function SingleMoviePage() {
     </div>
   );
 }
+
+// function murkupTrailer({ videos }) {
+//   let markup = `<iframe
+//   width="560"
+//   height="315"
+//   src="https://www.youtube.com/embed/${filmTrailer[filmTrailer.length - 1]}"
+//   frameborder="0"
+//   allowfullscreen
+//   ></iframe>`;
+
+//   return markup;
+// }

@@ -41,41 +41,6 @@ export default function Searchbar({ onSubmit }) {
           placeholder="Search movies"
         />
       </form>
-      <form className={styles.SearchBar__radioForm}>
-        <label className={styles.SearchBar__label}>
-          <input
-            className={styles.SearchBar__radio_btn}
-            type="radio"
-            name="type"
-            data-type="all"
-            onChange={handleFilter}
-            checked={type === "all"}
-          />
-          <span>All</span>
-        </label>
-        <label className={styles.SearchBar__label}>
-          <input
-            className={styles.SearchBar__radio_btn}
-            type="radio"
-            name="type"
-            data-type="movie"
-            onChange={handleFilter}
-            checked={type === "movie"}
-          />
-          <span>Movies only</span>
-        </label>
-        <label className={styles.SearchBar__label}>
-          <input
-            className={styles.SearchBar__radio_btn}
-            type="radio"
-            name="type"
-            data-type="tv"
-            onChange={handleFilter}
-            checked={type === "tv"}
-          />
-          <span>Series only</span>
-        </label>
-      </form>
     </div>
   );
 }

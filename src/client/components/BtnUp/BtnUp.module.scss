@@ -9,11 +9,23 @@
   cursor: pointer;
 }
 
+.scrollInvisible {
+  display: none;
+}
+.scrollVisible {
+  display: block;
+}
 .ScrollBtn {
-  position: absolute;
+  position: fixed;
   right: 50px;
-  bottom: 60px;
+  bottom: 80px;
   border: none;
-  background-color: none;
+  cursor: pointer;
+  background-color: transparent;
   outline: none;
+  svg {
+    border-radius: 50%;
+    fill: white;
+    background-color: $main-color;
+  }
 }

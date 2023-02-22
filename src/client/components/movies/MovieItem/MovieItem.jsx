@@ -12,10 +12,12 @@ export default function MovieItem({
   vote_average,
   id,
   name,
+  vote_count,
 }) {
   return (
-    <li className={styles.MovieItem}>
-      <Link to={`/movies/${id}`}>
+    <li className={styles.container}>
+      <Link className={styles.box} to={`/movies/${id}`}>
+        <b></b>
         <img
           className={styles.MovieItem__img}
           src={
@@ -25,10 +27,10 @@ export default function MovieItem({
           }
           alt="img"
         />
-        <div className={styles.MovieItem__wrapper}>
+        <div className={styles.content}>
           <h1 className={styles.MovieItem__title}>{title || name}</h1>
           <p className={styles.MovieItem__rating}>
-            User Score: {Math.round(vote_average)}/10
+            Vote/Votes: {Math.round(vote_average)}/ <span>{vote_count}</span>
           </p>
         </div>
       </Link>

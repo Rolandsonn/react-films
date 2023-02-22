@@ -1,9 +1,12 @@
 @import "../../../../shared/styles/styles.scss";
 
 .navItem {
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
   cursor: pointer;
   color: $primary-text-color;
   &:hover {
-    color: rgb(77, 209, 224);
+    color: #ff6b01;
   }
 }

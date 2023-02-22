@@ -7,9 +7,9 @@ const navbarElems = [
     to: "/movies",
     title: "Movies",
   },
-  {
-    to: "/favorites",
-    title: "Favorites",
-  },
+  // {
+  //   to: "/favorites",
+  //   title: "Favorites",
+  // },
 ];
 export default navbarElems;
