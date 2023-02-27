@@ -24,8 +24,8 @@ export default function Cast() {
   }, []);
 
   return (
-    <div className={`${styles.Cast}, ${styles.container}`}>
-      {cast && (
+    <div className={styles.Cast}>
+      {cast.length > 0 ? (
         <>
           <ul className={styles.Cast__list}>
             {cast.map((item) => (
@@ -33,6 +33,8 @@ export default function Cast() {
             ))}
           </ul>
         </>
+      ) : (
+        <div>Cast list is empty</div>
       )}
     </div>
   );

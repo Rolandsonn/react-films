@@ -18,25 +18,20 @@ export default function MoviePage() {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
-    const apiUrl = `https://api.themoviedb.org/3/search/movie/?api_key=${API_KEY}&language=en-US&page=${currentPage}&include_adult=true&query=${query}&video=true`;
-    if (query !== "") {
-      axios.get(apiUrl).then((response) => {
-        const data = response.data;
-        setFilms((prevState) => [...prevState, ...data.results]);
-      });
-    }
-  }, [currentPage, API_KEY]);
+    const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=${currentPage}&include_adult=true&query=${query}`;
 
-  useEffect(() => {
-    const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=${currentPage}&include_adult=true&query=${query}&`;
-    console.log(type);
-    if (query !== "") {
-      axios.get(apiUrl).then((response) => {
-        const data = response.data;
-        setFilms(data.results);
-      });
-    }
-  }, [query]);
+    const fetchFilms = async () => {
+      try {
+        await axios.get(apiUrl).then((response) => {
+          const data = response.data;
+          setFilms((prevState) => [...films, ...data.results]);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchFilms();
+  }, [query, currentPage]);
 
   const handleChange = (e) => {
     setQuery(e.currentTarget.value);

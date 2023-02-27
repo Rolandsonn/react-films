@@ -11,10 +11,9 @@ import { useParams } from "react-router-dom";
 
 export default function HomePage() {
   const [films, setFilms] = useState([]);
+  const [categ, setCateg] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const { id } = useParams();
-  const BASE_URL = "https://api.themoviedb.org/3";
 
   //? get trending films
   useEffect(() => {
@@ -22,7 +21,6 @@ export default function HomePage() {
     axios.get(apiUrl).then((response) => {
       const data = response.data;
       setFilms((prevState) => {
-        console.log(data);
         return [...films, ...data.results];
       });
     });
@@ -33,30 +31,16 @@ export default function HomePage() {
     const getByGenre = async () => {
       try {
         await axios
-          .get(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`)
-          .then((res) => {});
+          .get(`https://api.themoviedb.org/4/list/28?page=1&api_key=${API_KEY}`)
+          .then((res) => {
+            setCateg(() => [...films, ...res.data.results]);
+          });
       } catch (error) {
         console.error("Smth wrong with api get full trends" + error);
       }
     };
     getByGenre();
   });
-
-  useEffect(() => {
-    const getVideos = async () => {
-      try {
-        await axios
-          .get(
-            `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=videos`
-          )
-          .then((res) => {});
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getVideos();
-  }, []);
 
   const showMoreFilms = () => {
     setCurrentPage((prevState) => prevState + 1);

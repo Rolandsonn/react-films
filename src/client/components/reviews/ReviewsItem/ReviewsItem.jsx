@@ -12,14 +12,6 @@ export default function ReviewsItem({
 }) {
   return (
     <li className={styles.ReviewsItem}>
-      {/* <img
-        src={
-          author_details.avatar_path
-            ? `https://image.tmdb.org/t/p/w500${author_details.avatar_path}`
-            : imageDef
-        }
-        alt=""
-      /> */}
       <h1 className={styles.ReviewsItem__title}>{author}</h1>
       <p className={styles.ReviewsItem__text}>{content}</p>
       <p className={styles.ReviewsItem__date}>Created date:{created_at}</p>

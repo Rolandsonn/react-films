@@ -10,8 +10,9 @@ export default function BtnUp() {
   useEffect(() => {
     const onScroll = () => setOffset(window.pageYOffset);
     // clean up code
+
     window.removeEventListener("scroll", onScroll);
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -25,7 +26,7 @@ export default function BtnUp() {
 
   return (
     <div className={styles.wrapper}>
-      {window.scrollY ? (
+      {offset > 400 ? (
         <button className={styles.ScrollBtn} onClick={handlerScrollUp}>
           <svg
             version="1.1"

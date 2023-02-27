@@ -22,8 +22,8 @@ export default function Reviews() {
   });
 
   return (
-    <div className={`${styles.Reviews} ${styles.container}`}>
-      {reviews && (
+    <div className={styles.Reviews}>
+      {reviews.length > 1 ? (
         <>
           <ul className={styles.Reviews__list}>
             {reviews.map((item) => (
@@ -31,6 +31,10 @@ export default function Reviews() {
             ))}
           </ul>
         </>
+      ) : (
+        <div className={styles.Reviews__list}>
+          <h2>"No Reviews yet!!!"</h2>
+        </div>
       )}
     </div>
   );
