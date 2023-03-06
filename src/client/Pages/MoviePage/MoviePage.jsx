@@ -12,13 +12,12 @@ import LoadMoreBtn from "../../components/LoadMoreBtn";
 
 export default function MoviePage() {
   const [query, setQuery] = useState("");
-  const [type, setType] = useState("");
   const [films, setFilms] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
-    const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=${currentPage}&include_adult=true&query=${query}`;
+    const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=${currentPage}&include_adult=false&query=${query}`;
 
     const fetchFilms = async () => {
       try {
@@ -37,9 +36,8 @@ export default function MoviePage() {
     setQuery(e.currentTarget.value);
   };
 
-  const handleSubmit = (query, type) => {
+  const handleSubmit = (query) => {
     setQuery(query);
-    setType(type);
   };
 
   const showMoreFilms = () => {

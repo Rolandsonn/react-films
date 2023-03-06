@@ -21,8 +21,13 @@
   bottom: 80px;
   border: none;
   cursor: pointer;
+  transition: all 0.9s;
   background-color: transparent;
   outline: none;
+  &:hover {
+    transition: all 0.9s;
+    transform: translateY(-20px);
+  }
   svg {
     border-radius: 50%;
     fill: white;

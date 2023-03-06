@@ -13,6 +13,11 @@
   padding-top: 12px;
   padding-bottom: 12px;
 
-  background-color: $primary-bg-color;
+  background-color: $main-color;
   color: $primary-text-color;
+  a {
+    color: $primary-text-color;
+    display: block;
+    margin-left: auto;
+  }
 }

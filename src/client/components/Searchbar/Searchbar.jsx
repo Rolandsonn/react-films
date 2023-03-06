@@ -5,20 +5,14 @@ import styles from "./Searchbar.module.scss";
 
 export default function Searchbar({ onSubmit }) {
   const [query, setQuery] = useState("");
-  const [type, setType] = useState("all");
   const handleChange = ({ target }) => {
     setQuery(target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(query, type);
+    onSubmit(query);
     setQuery("");
-  };
-
-  const handleFilter = (e) => {
-    setType(e.target.dataset.type);
-    onSubmit(query, e.target.dataset.type);
   };
 
   return (
@@ -26,7 +20,7 @@ export default function Searchbar({ onSubmit }) {
       <form className={styles.SearchBar__searchForm} onSubmit={handleSubmit}>
         <button
           type="submit"
-          onClick={() => onSubmit(query, type)}
+          onClick={() => onSubmit(query)}
           className={styles.SearchBar__searchFormBtn}
         >
           <span className={styles.SearchBar__searchFormButtonLabel}>

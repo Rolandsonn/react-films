@@ -38,7 +38,6 @@ export default function SingleMoviePage() {
         let videoAPI = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
         await axios.get(videoAPI).then((res) => {
           setvideos(res.data.results);
-          console.log(res);
         });
       };
 
