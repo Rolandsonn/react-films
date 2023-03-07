@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/776.cc0302db.chunk.js","mappings":"qKAEe,SAASA,EAAc,GAAM,EAAJC,KACtC,OAAO,yBAAK,iBACd,C","sources":["client/Pages/FavoritesPage/FavoritesPage.jsx"],"sourcesContent":["import React from \"react\";\r\n\r\nexport default function FavoritesPage({ data }) {\r\n  return <div>FavoritesPage</div>;\r\n}\r\n"],"names":["FavoritesPage","data"],"sourceRoot":""}
