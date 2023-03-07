@@ -22,7 +22,6 @@ export default function SingleMoviePage() {
 
   const handleGoBack = () => navigate(-1, { replace: true });
 
-  const backdropRef = useRef();
   useEffect(() => {
     const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US&`;
 
@@ -35,7 +34,7 @@ export default function SingleMoviePage() {
   useEffect(() => {
     try {
       const fetchVideo = async () => {
-        let videoAPI = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
+        let videoAPI = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=826ff55be219075fe0c51d998b696b2f&language=en-US`;
         await axios.get(videoAPI).then((res) => {
           setvideos(res.data.results);
         });
@@ -46,12 +45,6 @@ export default function SingleMoviePage() {
       console.log(error);
     }
   }, []);
-
-  //Создаем функцию тоглер,
-  const modalToggler = (el) => {
-    console.log(el);
-    el.classList.remove("hidden");
-  };
 
   //Map Genres
   const genres = movie.genres?.map((item) => (
@@ -69,6 +62,7 @@ export default function SingleMoviePage() {
     popularity,
     release_date,
   } = movie;
+
   const filmTrailer = videos.map((video) => video.key);
   return (
     <div className={styles.SinglePage}>

@@ -6,7 +6,6 @@ import Footer from "../client/components/Footer";
 const HomePage = lazy(() => import("../client/Pages/HomePage"));
 const SinglePage = lazy(() => import("../client/Pages/SingleMoviePage"));
 const MoviePage = lazy(() => import("../client/Pages/MoviePage"));
-const FavoritesPage = lazy(() => import("../client/Pages/FavoritesPage"));
 
 export default function MainRoutes() {
   return (
@@ -18,7 +17,6 @@ export default function MainRoutes() {
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviePage />} />
           <Route path="/movies/:id/*" element={<SinglePage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
         </Routes>
       </Suspense>
 
