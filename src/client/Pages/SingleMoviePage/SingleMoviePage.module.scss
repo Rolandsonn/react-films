@@ -1,4 +1,6 @@
-@import "../../../shared/styles/styles.scss";
+@import "../../../shared/scss/libs/reset";
+@import "../../../shared/scss/libs/variables";
+@import "../../../shared/scss/libs/container";
 
 .SinglePage {
   background-color: black;

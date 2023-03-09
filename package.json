@@ -2,7 +2,7 @@
   "name": "films",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rolandsonn.github.io/react-films",
+  "homepage": "https://Rolandsonn.github.io/react-films/",
   "repository": {
     "type": "git",
     "url": "https://github.com/Rolandsonn/react-films.git"
@@ -19,6 +19,7 @@
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "saas": "^1.0.0",
+    "scss": "^0.2.4",
     "shortid": "^2.2.16",
     "web-vitals": "^2.1.4"
   },
@@ -28,7 +29,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "npm deploy deploy"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
