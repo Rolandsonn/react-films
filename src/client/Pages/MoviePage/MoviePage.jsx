@@ -23,7 +23,7 @@ export default function MoviePage() {
       try {
         await axios.get(apiUrl).then((response) => {
           const data = response.data;
-          setFilms((prevState) => [...films, ...data.results]);
+          setFilms(() => [...films, ...data.results]);
         });
       } catch (error) {
         console.log(error);

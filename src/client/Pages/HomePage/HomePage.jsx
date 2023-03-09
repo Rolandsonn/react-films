@@ -14,7 +14,6 @@ export default function HomePage() {
   const [films, setFilms] = useState([]);
   const [categ, setCateg] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [isLoaded, setisLoaded] = useState();
 
   const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -25,7 +24,7 @@ export default function HomePage() {
       try {
         await axios.get(apiUrl).then((response) => {
           const data = response.data;
-          setFilms((prevState) => {
+          setFilms(() => {
             return [...films, ...data.results];
           });
         });

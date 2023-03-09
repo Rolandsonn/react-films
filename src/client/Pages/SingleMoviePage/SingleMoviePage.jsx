@@ -25,25 +25,32 @@ export default function SingleMoviePage() {
   useEffect(() => {
     const apiUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US&`;
 
-    axios.get(apiUrl).then(async (response) => {
-      const data = await response.data;
-      setMovie(data);
-    });
+    const fetchFilms = async () => {
+      try {
+        await axios.get(apiUrl).then(async (response) => {
+          const data = await response.data;
+          setMovie(data);
+        });
+      } catch (error) {
+        console.log("Error from singlePage http request" + error);
+      }
+    };
+    fetchFilms();
   }, []);
 
   useEffect(() => {
-    try {
-      const fetchVideo = async () => {
-        let videoAPI = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=826ff55be219075fe0c51d998b696b2f&language=en-US`;
+    const fetchVideo = async () => {
+      try {
+        let videoAPI = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
         await axios.get(videoAPI).then((res) => {
           setvideos(res.data.results);
         });
-      };
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-      fetchVideo();
-    } catch (error) {
-      console.log(error);
-    }
+    fetchVideo();
   }, []);
 
   //Map Genres
@@ -140,6 +147,7 @@ export default function SingleMoviePage() {
                 className={styles.SinglePage__frame}
                 width="760"
                 height="415"
+                title={movie.title}
                 src={`https://www.youtube.com/embed/${
                   filmTrailer[filmTrailer.length - 1]
                 }`}
