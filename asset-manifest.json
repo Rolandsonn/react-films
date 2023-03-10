@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-films/static/css/main.be125e42.css",
+    "main.css": "/react-films/static/css/main.53143249.css",
     "main.js": "/react-films/static/js/main.6c58916a.js",
     "static/css/92.6af69522.chunk.css": "/react-films/static/css/92.6af69522.chunk.css",
     "static/js/92.c95d87e2.chunk.js": "/react-films/static/js/92.c95d87e2.chunk.js",
@@ -12,7 +12,7 @@
     "static/media/header-background-desktop.png": "/react-films/static/media/header-background-desktop.ce175d3ca0b83030d37f.png",
     "static/media/default_image.png": "/react-films/static/media/default_image.7555b15218a0f4733bf7.png",
     "index.html": "/react-films/index.html",
-    "main.be125e42.css.map": "/react-films/static/css/main.be125e42.css.map",
+    "main.53143249.css.map": "/react-films/static/css/main.53143249.css.map",
     "main.6c58916a.js.map": "/react-films/static/js/main.6c58916a.js.map",
     "92.6af69522.chunk.css.map": "/react-films/static/css/92.6af69522.chunk.css.map",
     "92.c95d87e2.chunk.js.map": "/react-films/static/js/92.c95d87e2.chunk.js.map",
@@ -23,7 +23,7 @@
     "384.b644a454.chunk.js.map": "/react-films/static/js/384.b644a454.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.be125e42.css",
+    "static/css/main.53143249.css",
     "static/js/main.6c58916a.js"
   ]
 }
